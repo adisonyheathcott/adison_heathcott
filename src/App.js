@@ -21,8 +21,8 @@ function App() {
       <Router>
         <ScrollToTop>
           <Switch>
-            <Route path="/" component={HomePage} exact />
-            <Route path="/posts" component={PostsPage} />
+            <Route path="/adison_heathcott/" component={HomePage} exact />
+            <Route path="/adison_heathcott/posts" component={PostsPage} />
             <Route component={Error} />
           </Switch>
         </ScrollToTop>

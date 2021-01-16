@@ -4,12 +4,16 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import About from './About.js';
 import Footer from './Footer.js';
 
-class HomePage extends React.Component {
+class HomePage extends React.Component {    
     constructor() {
         super();
         this.state = {
             showNavBar: false
         };
+    }
+
+    componentDidMount() {
+        document.title = "Adison Heathcott";
     }
 
     showNavBar = () => {
@@ -43,7 +47,7 @@ class HomePage extends React.Component {
                         </div>
 
                         <div id="nav-menu" style={{ display: this.state.showNavBar ? "inline-flex" : "none" }}>
-                            <Link to="/posts">
+                            <Link to="/adison_heathcott/posts">
                                 <button id="nav-button">
                                     Posts
                                 </button>
