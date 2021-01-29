@@ -4,6 +4,11 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import ArticlePage from './ArticlePage';
 
 class PostsPage extends React.Component {
+    constructor(props) {
+        super(props);
+        this.state = { atext: '' }
+    }
+
     componentDidMount() {
         document.title = "Posts";
     }
@@ -43,6 +48,36 @@ class PostsPage extends React.Component {
         }
     }
 
+    async postClicked(filename) {
+        // const reader = new FileReader();
+
+        // reader.addEventListener('load', function() {
+        //     this.prop.atext = this.result;
+        // });
+
+        // reader.readAsText(fetch(this.files[fileindex]));
+        // https://medium.com/@shawnstern/importing-multiple-markdown-files-into-a-react-component-with-webpack-7548559fce6f
+
+        this.readTextFile(filename);
+        document.getElementById("article-page-div").style.display = "block";
+    }
+
+    readTextFile = file => {
+        var rawFile = new XMLHttpRequest();
+        rawFile.open("GET", file, true);
+        rawFile.onreadystatechange = () => {
+            if (rawFile.readyState === 4) {
+                if (rawFile.status === 200 || rawFile.status === 0) {
+                    var allText = rawFile.responseText;
+                    this.setState({
+                        atext: allText
+                    });
+                }
+            }
+        };
+        rawFile.send(null);
+    };
+
     render() {
         return (
             <div id="posts-div">
@@ -61,9 +96,9 @@ class PostsPage extends React.Component {
                             <p>Operating System Development</p>
                             <FontAwesomeIcon id="down-icon" icon={['fas', 'caret-down']} size='2x'/>
                         </button>
-                        <div id="category-content-div" class="OS">
+                        <div id="category-content-div" className="OS">
                             <div id="article-div">
-                                <button>
+                                <button onClick={() => this.postClicked('/posts/osdev/osdev-intro.md')}>
                                     Introduction to Operating Systems.
                                 </button>
                             </div>
@@ -95,7 +130,7 @@ class PostsPage extends React.Component {
                             <p>Game Engine Development</p>
                             <FontAwesomeIcon id="down-icon" icon={['fas', 'caret-down']} size='2x'/>
                         </button>
-                        <div id="category-content-div" class="GameEngine">
+                        <div id="category-content-div" className="GameEngine">
                             <div id="article-div">
                                 <button>
                                     Introduction to Operating Systems.
@@ -129,7 +164,7 @@ class PostsPage extends React.Component {
                             <p>Test Thingy Development</p>
                             <FontAwesomeIcon id="down-icon" icon={['fas', 'caret-down']} size='2x'/>
                         </button>
-                        <div id="category-content-div" class="thingy">
+                        <div id="category-content-div" className="thingy">
                             <div id="article-div">
                                 <button>
                                     Introduction to Operating Systems.

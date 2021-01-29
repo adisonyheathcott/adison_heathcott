@@ -5,7 +5,7 @@ class ArticlePage extends React.Component {
     render() {
         return (
           <div id="article-page-div">
-            <ReactMarkdown escapeHtml={true} source={`# Your markdown here`}/>
+            <ReactMarkdown escapeHtml={true} source={this.props.atext}/>
           </div>  
         );
     }
