@@ -1,9 +1,27 @@
+const debug = process.env.NODE_ENV !== 'production';
+
 module.exports = {
-    webpack: function(config) {
-        config.module.rules.push({
+    exportPathMap: function() {
+        return {
+            "/": { page: "/" },
+            "/about": { page: "/about" },
+        }
+    },
+
+    assetPrefix: !debug ? '/adison_heathcott/' : '',
+    webpack: (config, {dev}) => {
+        config.module.rules = config.module.rules.map(rule => {
+            if (rule.loader === 'babel-loader') {
+                rule.options.cacheDirectory = false
+            }
+            return rule
+        })
+
+        config.module.push({
             test: /\.md$/,
             use: 'raw-loader',
         })
+
         return config
     }
 }
