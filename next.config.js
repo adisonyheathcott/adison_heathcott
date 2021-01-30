@@ -17,7 +17,7 @@ module.exports = {
             return rule
         })
 
-        config.module.push({
+        config.module.rules.push({
             test: /\.md$/,
             use: 'raw-loader',
         })
