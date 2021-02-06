@@ -52,7 +52,7 @@ export default class extends React.Component {
 						</div>
 
 						<div id="nav-menu" style={{ display: this.state.showNavBar ? "inline-flex" : "none" }}>
-							<Link href={"/posts"}>
+							<Link href={"/adison_heathcott/posts"}>
 								<button id="nav-button">
 									Posts
 								</button>
