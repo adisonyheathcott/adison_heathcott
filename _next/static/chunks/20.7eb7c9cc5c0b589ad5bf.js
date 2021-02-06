@@ -1,0 +1,1 @@
+(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[20],{n4X8:function(n,e,t){"use strict";t.r(e),e.default="---\nslug: osdev-intro\ntitle: OS Dev Introduction\nid: Operating System Developement\ndate: 01-30-2021\n---\n\n# h1\n\n## h2\n\n### h3\n\nNormal text"}}]);

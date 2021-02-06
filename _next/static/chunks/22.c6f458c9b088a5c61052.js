@@ -1,0 +1,1 @@
+(window.webpackJsonp_N_E=window.webpackJsonp_N_E||[]).push([[22],{GUpa:function(n,e,t){"use strict";t.r(e),e.default="---\nslug: osdev-kernel2\ntitle: OS Dev Kernel Two\nid: Operating System Developement\ndate: 01-30-2021\n---\n\n# h1\n\n## h2\n\n### h3\n\nNormal text"}}]);
