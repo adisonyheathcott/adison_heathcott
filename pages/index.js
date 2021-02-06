@@ -71,24 +71,24 @@ export default class extends React.Component {
 
 export async function getStaticProps() {
 	const siteData = await import('../config.json');
-	const fs = require("fs");
+	// const fs = require("fs");
 	
-	const files = fs.readdirSync(`${process.cwd()}/content`, `utf-8`);
+	// const files = fs.readdirSync(`${process.cwd()}/content`, `utf-8`);
 	
-	const blogs = files.filter((fn) => fn.endsWith(".md"));
+	// const blogs = files.filter((fn) => fn.endsWith(".md"));
 	
-	const data = blogs.map((blog) => {
-		const path = `${process.cwd()}/content/${blog}`;
-		const rawContent = fs.readFileSync(path, {
-			encoding: "utf-8",
-		});
+	// const data = blogs.map((blog) => {
+	// 	const path = `${process.cwd()}/content/${blog}`;
+	// 	const rawContent = fs.readFileSync(path, {
+	// 		encoding: "utf-8",
+	// 	});
 
-		return rawContent;
-	});
+	// 	return rawContent;
+	// });
 
 	return {
 		props: {
-			data: data,
+			// data: data,
 			title: siteData.default.title,
 			description: siteData.default.description,
 		},
