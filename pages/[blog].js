@@ -18,12 +18,12 @@ const Blog = ({content, data}) => {
     return (
         <div id="blog-div">
             <div id="blog-div-top">
-                <Link href={"/"}>
+                <Link href="/" as={ process.env.BACKEND_URL + '/' }>
                     <button>
                         <FontAwesomeIcon id="home-icon" icon={['fas', 'home']} size='2x'/>
                     </button>
                 </Link>
-                <Link href={"/posts"}>
+                <Link href="/posts" as={ process.env.BACKEND_URL + '/posts' }>
                     <button>
                         <FontAwesomeIcon id="posts-icon" icon={['fas', 'book']} size='2x'/>
                     </button>

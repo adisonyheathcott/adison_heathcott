@@ -20,7 +20,7 @@ class Posts extends React.Component {
                 </Head>
                 <div id="posts-div">
                     <div id="posts-div-top">
-                        <Link href={"/"}>
+                        <Link href="/" as={ process.env.BACKEND_URL + '/' }>
                             <button>
                                 <FontAwesomeIcon id="home-icon" icon={['fas', 'home']} size='2x'/>
                             </button>

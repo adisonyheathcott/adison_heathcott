@@ -1,14 +1,14 @@
-const ghpages = process.env.DEPLOY_TARGET === 'gh-pages';
+const debug = process.env.NODE_ENV !== 'production';
 
 module.exports = {
-    // exportPathMap: function() {
-    //     return {
-    //         "/": { page: "/" },
-    //         "/posts": { page: "/posts"}
-    //     }
-    // },
+    exportPathMap: function() {
+        return {
+            "/": { page: "/" },
+            "/posts": { page: "/posts"}
+        }
+    },
 
-    assetPrefix: ghpages ? '/adisonyheathcott.github.io/adison_heathcott/' : '',
+    assetPrefix: !debug ? '/adison_heathcott/' : '',
     webpack: (config, {dev}) => {
         config.module.rules = config.module.rules.map(rule => {
             if (rule.loader === 'babel-loader') {
