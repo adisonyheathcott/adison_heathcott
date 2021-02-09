@@ -1,6 +1,8 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import matter from 'gray-matter';
 import ReactMarkdown from 'react-markdown';
 import { Prism as SyntaxHighlighter } from 'react-syntax-highlighter';
+import Link from 'next/link';
 
 const CodeBlock = ({ language, value }) => {
     return (
@@ -14,16 +16,31 @@ const Blog = ({content, data}) => {
     const frontmatter = data;
 
     return (
-        <>
-            <h1>{frontmatter.title}</h1>
-            <h3>{frontmatter.description}</h3>
+        <div id="blog-div">
+            <div id="blog-div-top">
+                <Link href={"/"}>
+                    <button>
+                        <FontAwesomeIcon id="home-icon" icon={['fas', 'home']} size='2x'/>
+                    </button>
+                </Link>
+                <Link href={"/posts"}>
+                    <button>
+                        <FontAwesomeIcon id="posts-icon" icon={['fas', 'book']} size='2x'/>
+                    </button>
+                </Link>
+            </div>
 
-            <ReactMarkdown
-                escapeHtml={true}
-                source={content}
-                renderers={{ code: CodeBlock }}
-            />
-        </>
+            <div id="blog-div-blog">
+                <h1>{frontmatter.title}</h1>
+                <h3>{frontmatter.description}</h3>
+
+                <ReactMarkdown
+                    escapeHtml={true}
+                    source={content}
+                    renderers={{ code: CodeBlock }}
+                />
+            </div>
+        </div>
     );
 };
 

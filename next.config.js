@@ -3,7 +3,7 @@ const debug = process.env.NODE_ENV !== 'production';
 module.exports = {
     exportPathMap: function() {
         return {
-            "/": { page: "/" },
+            "/adison_heathcott": { page: "/" },
             "/adison_heathcott/posts": { page: "/posts" },
         }
     },

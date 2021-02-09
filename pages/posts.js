@@ -29,36 +29,6 @@ class Posts extends React.Component {
                     </div>
 
                     <div id="post-categories-div">
-                        {/* <ul>
-                            {this.ListItems.map((blog, i) => (
-                                <li key={i}>
-                                    <a>{blog.title}</a>
-                                </li>
-                            ))}
-                        </ul> */}
-
-                        {/* <ul>
-                            {this.props.catnames.map((word, idx) => (
-                                <li id="cat-li" key={idx}>
-                                    <button id="cat-li-button">
-                                        <p>{word}</p>
-                                        <FontAwesomeIcon id="down-icon" icon={['fas', 'caret-down']} size='2x'/>
-                                    </button>
-                                    <ul id="cat-ul">
-                                        {this.props.dirfiles[idx].map((name, id) => (
-                                            <li id="cat-li-li" key={id}>
-                                                <Link href={`${this.props.categories[idx]}/${matter(name).data.slug}`}>
-                                                    <button id="cat-li-li-button">
-                                                        {matter(name).data.title}
-                                                    </button>
-                                                </Link>
-                                            </li>
-                                        ))}
-                                    </ul>
-                                </li>
-                            ))}
-                        </ul> */}
-
                         <ul>
                             {this.props.cats.map((word, idx) => (
                                 <li id="cat-li" key={idx}>
@@ -75,7 +45,7 @@ class Posts extends React.Component {
                                                     </button>
                                                 </Link>
                                             </li>
-                                        ))};
+                                        ))}
                                     </ul>
                                 </li>
                             ))}
@@ -137,104 +107,4 @@ export async function getStaticProps() {
             files: catFiles,
         },
     };
-
-    // // Get the general site data
-    // const siteData = await import('../config.json');
-
-    // // Create the filesystem reader
-    // const fs = require('fs');
-    
-    // // Get the directory information for content (categories)
-    // const dirs = fs.readdirSync(`${process.cwd()}/content`, 'utf-8');
-    // var dirNames = new Array(dirs.length);
-
-    // // Create the array for the array of files for each directory
-    // var files = new Array(dirs.length);
-
-    // for (var i = 0; i < dirs.length; i++) {
-    //     // Get the path of the directory
-    //     var path = `${process.cwd()}/content/` + dirs[i];
-
-    //     // Get the directory files
-    //     const dirfiles = fs.readdirSync(path, "utf-8");
-    //     const mdfiles = dirfiles.filter((fn) => fn.endsWith(".md"));
-    //     files[i] = new Array(mdfiles.length);
-
-    //     // Set the mdfiles in the files array
-    //     for (var j = 0; j < mdfiles.length; j++) {
-    //         const path = `${process.cwd()}/content/${dirs[i]}/${mdfiles[j]}`;
-    //         const rawContent = fs.readFileSync(path, {
-    //             encoding: "utf-8",
-    //         });
-
-    //         files[i][j] = rawContent;
-    //         // files[i][j] = mdfiles[j];
-    //     }
-
-    //     // Set all the directories names to a readable form
-    //     dirNames[i] = dirs[i].charAt(0).toUpperCase() + dirs[i].replace(/([a-z])([A-Z])/g, '$1 $2').slice(1);
-    // }
-    
-    // // Return the information
-    // return {
-    //     props: {
-    //         title: siteData.default.title,
-    //         description: siteData.default.description,
-    //         categories: dirs,
-    //         catnames: dirNames,
-    //         dirfiles: files
-    //     }
-    // }
-
-    // const siteData = await import('../config.json');
-    
-    // // Load the post data in
-    // const fs = require('fs');
-
-    // const dirs = fs.readdirSync(`${process.cwd()}/content`, 'utf-8');
-    // var files = new Array(dirs.length);
-    
-    // for (var i = 0; i < dirs.length; i++) {
-    //     var path = `${process.cwd()}/content/` + dirs[i];
-
-    //     dirs[i] = dirs[i].charAt(0).toUpperCase() + dirs[i].replace(/([a-z])([A-Z])/g, '$1 $2').slice(1);
-
-    //     const dirfiles = fs.readdirSync(path, "utf-8");
-    //     const mdfiles = dirfiles.filter((fn) => fn.endsWith(".md"));
-    //     files[i] = new Array(mdfiles.length);
-
-    //     const data = files.map((file) => {
-    //         const path = `${process.cwd()}/content/${file}`;
-    //         const rawContent = fs.readFileSync(path, {
-    //             encoding: 'utf-8',
-    //         });
-    //     });
-        
-    //     for (var j = 0; j < mdfiles.length; j++) {
-    //         files[i][j] = mdfiles[j];
-    //     }
-    // }
-
-    // // const dirs = fs.readdirSync(`${process.cwd()}/content`, 'utf-8');
-    // // const files = fs.readdirSync(dirs);
-    // // const blogs = files.filter((fn) => fn.endsWith(".md"));
-
-    // // const data = blogs.map((blog) => {
-    // //     const path = `${process.cwd()}/content/${blog}`;
-    // //     const rawContent = fs.readFileSync(path, {
-    // //         encoding: 'utf-8',
-    // //     });
-
-    // //     return rawContent;
-    // // })
-
-    // return {
-    //     props: {
-    //         // data: files,
-    //         categories: dirs,
-    //         dirfiles: files,
-    //         title: siteData.default.title,
-    //         description: siteData.default.description
-    //     }
-    // }
 }
