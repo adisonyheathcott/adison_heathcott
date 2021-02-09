@@ -3,8 +3,8 @@ const debug = process.env.NODE_ENV !== 'production';
 module.exports = {
     exportPathMap: function() {
         return {
-            "/adison_heathcott": { page: "/" },
-            "/adison_heathcott/posts": { page: "/posts"}
+            "/": { page: "/adison_heathcott" },
+            "/posts": { page: "/adison_heathcott/posts"}
         }
     },
 
