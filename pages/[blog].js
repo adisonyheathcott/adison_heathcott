@@ -18,7 +18,7 @@ const Blog = ({content, data}) => {
     return (
         <div id="blog-div">
             <div id="blog-div-top">
-                <Link href="/">
+                <Link href={"/"}>
                     <button>
                         <FontAwesomeIcon id="home-icon" icon={['fas', 'home']} size='2x'/>
                     </button>
