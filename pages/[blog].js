@@ -33,6 +33,7 @@ const Blog = ({content, data}) => {
             <div id="blog-div-blog">
                 <h1>{frontmatter.title}</h1>
                 <h3>{frontmatter.description}</h3>
+                <h6 style={{color: 'black', margin: '10px 0 15px 0'}}>Published: {frontmatter.date}</h6>
 
                 <ReactMarkdown
                     escapeHtml={true}
