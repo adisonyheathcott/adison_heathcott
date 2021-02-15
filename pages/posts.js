@@ -39,7 +39,7 @@ class Posts extends React.Component {
                                     <ul id="cat-ul">
                                         {this.props.files[idx].map((name, id) => (
                                             <li id="cat-li-li" key={id}>
-                                                <Link href={`/${matter(name).data.slug}`}>
+                                                <Link href={`/${matter(name).data.slug}`} as={ process.env.BACKEND_URL + `/${matter(name).data.slug}` }>
                                                     <button id="cat-li-li-button">
                                                         {matter(name).data.title}
                                                     </button>
