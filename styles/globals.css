@@ -499,6 +499,15 @@ body {
   font-weight: normal;
 }
 
+#blog-div #blog-div-blog h2 {
+  text-align: center;
+
+  font-family: Didot, Didot LT STD, Hoefler Text, Garamond, Calisto MT, Times New Roman, serif;
+  font-size: 1.8rem;
+  font-style: normal;
+  font-weight: normal;
+}
+
 #blog-div #blog-div-blog h3 {
   text-align: center;
   font-weight: normal;
@@ -564,6 +573,40 @@ body {
   margin: 0;
   padding-left: 3px;
   border-left: 0.5em #ccc solid;
+}
+
+#blog-div #blog-div-blog ul {
+  list-style-type: circle;
+}
+
+#blog-div #blog-div-blog li {
+  font-family: roboto,sans-serif;
+  font-size: 18px;
+  font-weight: normal;
+  color: #292929;
+  /* margin: 10px; */
+  margin: 10px 0 10px 50px;
+}
+
+#blog-div #blog-div-blog table, th, td {
+  border: 1px solid black;
+}
+
+#blog-div #blog-div-blog table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#blog-div #blog-div-blog th {
+  padding: 5px;
+  margin: 0;
+}
+
+#blog-div #blog-div-blog td {
+  padding: 5px;
+  margin: 0;
 }
 
 /* Scrollbar */
