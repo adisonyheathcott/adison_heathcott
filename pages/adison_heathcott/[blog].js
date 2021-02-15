@@ -58,7 +58,7 @@ export default Blog;
 Blog.getInitialProps = async (context) => {
     const { blog } = context.query;
 
-    const content = await import(`../content/${blog}.md`);
+    const content = await import(`../../content/${blog}.md`);
     const data = matter(content.default);
 
     return { ...data };
