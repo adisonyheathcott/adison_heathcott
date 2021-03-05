@@ -2,7 +2,7 @@
 slug: osdev-intro
 title: OS Dev Introduction
 description: An introduction into operating system development.
-id: Operating System Developement
+id: Operating System Development
 date: 02-14-2021
 ---
 

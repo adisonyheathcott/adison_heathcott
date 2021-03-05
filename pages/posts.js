@@ -59,6 +59,10 @@ class Posts extends React.Component {
 
 export default Posts;
 
+function dateToNum(d) {
+    d = d.split("-"); return Number(d[2]+d[1]+d[0]);
+}
+
 export async function getStaticProps() {
     // Get the general site data
     const siteData = await import('../config.json');
@@ -66,27 +70,34 @@ export async function getStaticProps() {
     // Create the filesystem reader
     const fs = require('fs');
 
+    // Get all the md files in the content directory
     const files = fs.readdirSync(`${process.cwd()}/content`, `utf-8`);
-    const blogs = files.filter((fn) => fn.endsWith(".md"));
+    var blogs = files.filter((fn) => fn.endsWith(".md"));
 
+    // Create the array that will break the files apart into categories
     var categories = [];
-    
+
     for (var i = 0; i < blogs.length; i++) {
+        // Get the raw content of the blog in question
         const path = `${process.cwd()}/content/${blogs[i]}`;
         const rawContent = fs.readFileSync(path, {
             encoding: "utf-8",
         });
+
+        // If it doesnt already exist add its category to the categories array
         if (!categories.includes(matter(rawContent).data.id)) {
             categories.push(matter(rawContent).data.id);
         }
     }
 
+    // Create the array to hold category files
     var catFiles = [];
 
     for (var i = 0; i < categories.length; i++) {
         catFiles.push(new Array());
     }
 
+    // 
     for (var i = 0; i < blogs.length; i++) {
         const path = `${process.cwd()}/content/${blogs[i]}`;
         const rawContent = fs.readFileSync(path, {
@@ -94,6 +105,12 @@ export async function getStaticProps() {
         });
 
         catFiles[categories.indexOf(matter(rawContent).data.id)].push(rawContent);
+    }
+
+    for (var i = 0; i < catFiles.length; i++) {
+        catFiles[i].sort(function (a, b) {
+            return dateToNum(matter(a).data.date) - dateToNum(matter(b).data.date);
+        });
     }
 
     return {
