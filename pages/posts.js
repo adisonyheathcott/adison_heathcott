@@ -109,7 +109,8 @@ export async function getStaticProps() {
 
     for (var i = 0; i < catFiles.length; i++) {
         catFiles[i].sort(function (a, b) {
-            return dateToNum(matter(a).data.date) - dateToNum(matter(b).data.date);
+            // return dateToNum(matter(a).data.date) - dateToNum(matter(b).data.date);
+            return dateToNum(matter(b).data.date) - dateToNum(matter(a).data.date);
         });
     }
 
